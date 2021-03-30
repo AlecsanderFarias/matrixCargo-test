@@ -5,7 +5,14 @@ const { Schema } = mongoose;
 
 const JobSchema = new Schema(
   {
-    //create fields
+    name: { type: String, required: true },
+    description: { type: String, required: true },
+    address: {
+      country: { type: String },
+      state: { type: String },
+      complement: { type: String },
+    },
+    remote: { type: String, default: false },
   },
   { timestamps: true }
 );
