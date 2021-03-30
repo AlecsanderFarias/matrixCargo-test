@@ -19,9 +19,9 @@ const list = async (req, res) => {
       query.active = active;
     }
 
-    const plans = await Plan.paginate(query, options);
+    const jobs = await Job.paginate(query, options);
 
-    return res.status(200).json(plans);
+    return res.status(200).json(jobs);
   } catch (error) {
     exception(error);
     return res.status(500).json(error);
