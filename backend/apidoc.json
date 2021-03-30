@@ -1,0 +1,13 @@
+{
+  "name": "API Documentation",
+  "version": "1.0.0",
+  "description": "",
+  "title": "matrixCargo test api",
+  "url" : "",
+  "sampleUrl": "",
+  "template": {
+    "withCompare": false,
+    "withGenerator": true,
+    "aloneDisplay": false
+  }
+}
