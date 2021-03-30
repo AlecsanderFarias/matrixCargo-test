@@ -12,7 +12,8 @@ const JobSchema = new Schema(
       state: { type: String },
       complement: { type: String },
     },
-    remote: { type: String, default: false },
+    remote: { type: String, default: true },
+    active: { type: Boolean, default: true },
   },
   { timestamps: true }
 );
