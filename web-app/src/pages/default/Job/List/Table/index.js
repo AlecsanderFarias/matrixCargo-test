@@ -33,9 +33,9 @@ const row = (data) => {
         {data.name}
       </TableCell>
       <TableCell align="left">{data.description || "Sem Descrição."}</TableCell>
-      <TableCell align="right">{showAddress()}</TableCell>
+      <TableCell align="left">{showAddress()}</TableCell>
       <TableCell align="right">
-        {data.active ? "Ativada" : "Desativada"}
+        {data.active ? "Ativa" : "Desativada"}
       </TableCell>
 
       <TableCell align="right">
@@ -53,7 +53,7 @@ function Table({ data }) {
           <TableRow>
             <TableCell>Nome da vaga</TableCell>
             <TableCell align="left">Descrição</TableCell>
-            <TableCell align="right">Endereço</TableCell>
+            <TableCell align="left">Endereço</TableCell>
             <TableCell align="right">Status</TableCell>
             <TableCell align="right">Ações</TableCell>
           </TableRow>

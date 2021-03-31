@@ -4,8 +4,8 @@ import { CircularProgress } from "@material-ui/core";
 
 // import { Container } from './styles';
 
-function Loading() {
-  return <CircularProgress size={50} />;
+function Loading({ size = 50 }) {
+  return <CircularProgress size={size} />;
 }
 
 export default Loading;

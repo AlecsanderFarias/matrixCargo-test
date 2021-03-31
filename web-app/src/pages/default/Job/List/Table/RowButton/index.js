@@ -10,7 +10,7 @@ function RowButton({ data }) {
   const history = useHistory();
 
   return (
-    <Button onClick={() => history.push(`/edit/${data._id}`)}>
+    <Button onClick={() => history.push(`/${data._id}`)}>
       <VisibilityRounded />
     </Button>
   );

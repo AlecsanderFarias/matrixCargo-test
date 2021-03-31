@@ -9,14 +9,14 @@ module.exports = {
     SharedArrayBuffer: "readonly",
   },
   parserOptions: {
+    ecmaVersion: 6,
     ecmaFeatures: {
-      jsx: true,
+      experimentalObjectRestSpread: true,
     },
-    ecmaVersion: 2018,
-    sourceType: "module",
   },
   plugins: ["react", "prettier", "eslint-plugin-import-helpers"],
   rules: {
+    "no-shadow": [2, { allow: ["resolve"] }],
     quotes: [2, "double", { avoidEscape: true }],
     "prettier/prettier": "error",
     "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }],

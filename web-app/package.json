@@ -21,7 +21,9 @@
     "react-scripts": "4.0.3",
     "react-toastify": "^7.0.3",
     "styled-components": "^5.2.2",
-    "web-vitals": "^1.0.1"
+    "unform-material-ui": "^1.0.5",
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
