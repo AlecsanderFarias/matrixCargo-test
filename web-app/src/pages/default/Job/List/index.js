@@ -1,11 +1,13 @@
 import React from "react";
 
 import { Pagination, InsidePageHeader, Loading } from "~/components";
+import api from "~/services/api";
 
 import { Container, LoadingContainer } from "./styles";
 import Table from "./Table";
 
-function List() {
+function List({ match }) {
+  const { page } = match.params;
   const [loading, setLoading] = React.useState(false);
   const [data, setData] = React.useState([]);
   const [pagination, setPagination] = React.useState({
@@ -14,12 +16,21 @@ function List() {
     totalPages: 1,
   });
 
-  async function getData(page) {
+  async function getData(getPage) {
     try {
       setLoading(true);
 
-      console.log(page);
-      setData([]);
+      const response = await api.get("/job", {
+        page: getPage || 1,
+        perPage: pagination.perPage,
+      });
+
+      setData(response.data.data);
+      setPagination({
+        ...pagination,
+        totalPages: response.data.totalPages,
+        page: response.data.page,
+      });
 
       setLoading(false);
     } catch (error) {
@@ -29,7 +40,7 @@ function List() {
   }
 
   React.useEffect(() => {
-    getData(1);
+    getData(page || 1);
   }, [pagination.perPage]);
 
   return (
@@ -49,7 +60,7 @@ function List() {
 
       <Pagination
         pagination={pagination}
-        onChangePage={(page) => getData(page)}
+        onChangePage={(newPage) => getData(newPage)}
         onChangeRowsPerPage={(e) =>
           setPagination({ ...pagination, perPage: e })
         }
