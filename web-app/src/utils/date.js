@@ -1,5 +1,5 @@
 const formatDate = () => {
-  return 'data formatada';
+  return "data formatada";
 };
 
 export { formatDate };

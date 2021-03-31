@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route } from "react-router-dom";
 
-import DefaultLayout from '../../pages/_layouts/Default';
+import DefaultLayout from "../../pages/_layouts/Default";
 
 const Default = ({ component: Component, ...rest }) => {
   return (
@@ -16,10 +15,6 @@ const Default = ({ component: Component, ...rest }) => {
       )}
     />
   );
-};
-
-Default.propTypes = {
-  component: PropTypes.func.isRequired,
 };
 
 export default Default;

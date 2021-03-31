@@ -1,6 +1,6 @@
-import React from 'react';
-import { TablePagination } from '@material-ui/core';
-import { Container } from './styles';
+import React from "react";
+import { TablePagination } from "@material-ui/core";
+import { Container } from "./styles";
 
 function Pagination({ pagination, onChangePage, onChangeRowsPerPage }) {
   return (

@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import { Pagination, InsidePageHeader, Loading } from '../../../../components';
-import { Container, LoadingContainer } from './styles';
-import Table from './Table';
+import { Pagination, InsidePageHeader, Loading } from "~/components";
+
+import { Container, LoadingContainer } from "./styles";
+import Table from "./Table";
 
 function List() {
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
   const [data, setData] = React.useState([]);
   const [pagination, setPagination] = React.useState({
     page: 1,
@@ -15,8 +16,15 @@ function List() {
 
   async function getData(page) {
     try {
+      setLoading(true);
+
+      console.log(page);
+      setData([]);
+
+      setLoading(false);
     } catch (error) {
-      //handle (show ) error or default response
+      setLoading(false);
+      // handle (show ) error or default response
     }
   }
 

@@ -1,10 +1,11 @@
-import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import React from "react";
+
+import { Grid, Typography } from "@material-ui/core";
 // import { Container } from './styles';
 
 function InsidePageHeader({
-  title = '',
-  description = '',
+  title = "",
+  description = "",
   sideComponents = [],
 }) {
   return (

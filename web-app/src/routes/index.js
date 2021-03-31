@@ -1,12 +1,12 @@
-import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import React from "react";
 
-import DefaultRoute from './Default';
+import { BrowserRouter, Switch } from "react-router-dom";
 
-//Default Routes
-import JobView from '../pages/default/Job/View';
-import JobCreateEdit from '../pages/default/Job/CreateEdit';
-import JobList from '../pages/default/Job/List';
+// Default Routes
+import JobCreateEdit from "../pages/default/Job/CreateEdit";
+import JobList from "../pages/default/Job/List";
+import JobView from "../pages/default/Job/View";
+import DefaultRoute from "./Default";
 
 const Routes = () => {
   return (

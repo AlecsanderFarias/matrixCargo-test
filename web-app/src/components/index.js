@@ -1,5 +1,5 @@
-import Pagination from './Pagination';
-import InsidePageHeader from './InsidePageHeader';
-import Loading from './Loading';
+import InsidePageHeader from "./InsidePageHeader";
+import Loading from "./Loading";
+import Pagination from "./Pagination";
 
 export { Pagination, InsidePageHeader, Loading };
