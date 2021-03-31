@@ -12,3 +12,8 @@ export const LoadingContainer = styled.div`
   align-items: center;
   min-height: 400px;
 `;
+
+export const HeaderContainer = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+`;

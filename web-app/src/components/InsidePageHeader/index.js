@@ -9,8 +9,8 @@ function InsidePageHeader({
   sideComponents = [],
 }) {
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} sm>
+    <Grid container spacing={2} style={{ width: "100%", margin: 0 }}>
+      <Grid item xs={12} md>
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <Typography variant="h4">{title}</Typography>
@@ -23,8 +23,10 @@ function InsidePageHeader({
           )}
         </Grid>
       </Grid>
-      <Grid item xs={12} sm>
-        {sideComponents.map((item) => item())}
+      <Grid item xs={12} md>
+        <Grid container spacing={2} alignItems="center" justify="flex-end">
+          {sideComponents.map((item) => item)}
+        </Grid>
       </Grid>
     </Grid>
   );

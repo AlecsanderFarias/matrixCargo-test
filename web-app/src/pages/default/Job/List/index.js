@@ -1,13 +1,17 @@
 import React from "react";
+import { Grid } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
-import { Pagination, InsidePageHeader, Loading } from "~/components";
+import { Pagination, InsidePageHeader, Loading, Button } from "~/components";
 import api from "~/services/api";
 
-import { Container, LoadingContainer } from "./styles";
+import { Container, LoadingContainer, HeaderContainer } from "./styles";
 import Table from "./Table";
 
 function List({ match }) {
   const { page } = match.params;
+  const history = useHistory();
+
   const [loading, setLoading] = React.useState(false);
   const [data, setData] = React.useState([]);
   const [pagination, setPagination] = React.useState({
@@ -39,16 +43,29 @@ function List({ match }) {
     }
   }
 
+  const createButton = () => {
+    return (
+      <Grid xs={12} md={3}>
+        <Button fullWidth onClick={() => history.push("/create")}>
+          Adicionar vaga
+        </Button>
+      </Grid>
+    );
+  };
+
   React.useEffect(() => {
     getData(page || 1);
   }, [pagination.perPage]);
 
   return (
     <Container>
-      <InsidePageHeader
-        title="Vagas de emprego"
-        description="Listagem de todas as vagas de emprego cadastradas"
-      />
+      <HeaderContainer>
+        <InsidePageHeader
+          title="Vagas de emprego"
+          description="Listagem de todas as vagas de emprego cadastradas"
+          sideComponents={[createButton()]}
+        />
+      </HeaderContainer>
 
       {loading ? (
         <LoadingContainer>
