@@ -22,7 +22,7 @@ function List() {
 
   React.useEffect(() => {
     getData(1);
-  }, []);
+  }, [pagination.perPage]);
 
   return (
     <Container>
@@ -42,7 +42,9 @@ function List() {
       <Pagination
         pagination={pagination}
         onChangePage={(page) => getData(page)}
-        onChangeRowsPerPage={(e) => set}
+        onChangeRowsPerPage={(e) =>
+          setPagination({ ...pagination, perPage: e })
+        }
       />
     </Container>
   );
