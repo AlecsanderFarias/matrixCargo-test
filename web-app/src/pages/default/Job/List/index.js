@@ -1,20 +1,20 @@
 import React from 'react';
 
-import { Pagination, InsidePageHeader } from '../../../../components';
+import { Pagination, InsidePageHeader, Loading } from '../../../../components';
 import { Container, LoadingContainer } from './styles';
 import Table from './Table';
 
 function List() {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
   const [data, setData] = React.useState([]);
   const [pagination, setPagination] = React.useState({
     page: 1,
-    perPage: 1,
+    perPage: 10,
+    totalPages: 1,
   });
 
   async function getData(page) {
     try {
-      //get data from server
     } catch (error) {
       //handle (show ) error or default response
     }
@@ -26,11 +26,24 @@ function List() {
 
   return (
     <Container>
-      <InsidePageHeader name="Vagas de emprego" />
+      <InsidePageHeader
+        title="Vagas de emprego"
+        description="Listagem de todas as vagas de emprego cadastradas"
+      />
 
-      {loading ? <LoadingContainer /> : <Table data={data} />}
+      {loading ? (
+        <LoadingContainer>
+          <Loading />
+        </LoadingContainer>
+      ) : (
+        <Table data={data} />
+      )}
 
-      <Pagination pagination={pagination} onChange={(page) => getData(page)} />
+      <Pagination
+        pagination={pagination}
+        onChangePage={(page) => getData(page)}
+        onChangeRowsPerPage={(e) => set}
+      />
     </Container>
   );
 }
