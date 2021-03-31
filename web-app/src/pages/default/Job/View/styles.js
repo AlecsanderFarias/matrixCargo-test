@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Paper as PaperMt, Button as ButtonMt } from "@material-ui/core";
+import { Paper as PaperMt, Button } from "@material-ui/core";
 
 export const Paper = styled(PaperMt)`
   margin-top: 20px;
@@ -20,4 +20,18 @@ export const LoadingContainer = styled.div`
   min-height: 400px;
 `;
 
-export const Button = styled(ButtonMt)``;
+export const Label = styled.h4`
+  font-size: 22px;
+  font-weight: 500;
+`;
+
+export const Value = styled.span`
+  font-size: 16px;
+  font-weight: 300;
+`;
+
+export const ButtonBack = styled(Button)``;
+
+export const ButtonDelete = styled(Button)``;
+
+export const ButtonEdit = styled(Button)``;

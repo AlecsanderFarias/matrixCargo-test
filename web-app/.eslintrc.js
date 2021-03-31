@@ -16,6 +16,14 @@ module.exports = {
   },
   plugins: ["react", "prettier", "eslint-plugin-import-helpers"],
   rules: {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: true,
+        optionalDependencies: true,
+        peerDependencies: true,
+      },
+    ],
     "no-shadow": [2, { allow: ["resolve"] }],
     quotes: [2, "double", { avoidEscape: true }],
     "prettier/prettier": "error",

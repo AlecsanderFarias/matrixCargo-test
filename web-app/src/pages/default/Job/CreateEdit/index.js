@@ -7,11 +7,11 @@ import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 
-import { InsidePageHeader, Input, Loading } from "~/components";
+import { InsidePageHeader, Input, Loading, Button } from "~/components";
 import api from "~/services/api";
 import validator from "./validator";
 
-import { Container, Paper, Button, LoadingContainer } from "./styles";
+import { Container, Paper, LoadingContainer } from "./styles";
 
 function CreateEdit({ match }) {
   const { id } = match.params;
@@ -30,11 +30,28 @@ function CreateEdit({ match }) {
 
       await validator({ ...formData, remote });
 
-      await api.put(`/job/${id}`, { ...formData, remote, active });
+      let response;
+
+      // edit
+      if (id) {
+        response = await api.put(`/job/${id}`, {
+          ...formData,
+          remote,
+          active,
+        });
+      } else {
+        // create
+
+        response = await api.post("/job", {
+          ...formData,
+          remote,
+          active,
+        });
+      }
 
       toast.success("Vaga alterada com sucesso.");
 
-      history.push("/");
+      history.push(`/${response.data._id}`);
 
       setLoading(false);
     } catch (error) {
@@ -157,13 +174,18 @@ function CreateEdit({ match }) {
               xs={12}
               style={{ display: "flex", justifyContent: "flex-end" }}
             >
-              {loading ? (
-                <Loading size={20} />
-              ) : (
-                <Button onClick={() => formRef.current.submitForm()}>
-                  Salvar
-                </Button>
-              )}
+              <Button
+                onClick={() => history.push(id ? `/${data._id}` : "/")}
+                customType={2}
+              >
+                Cancelar
+              </Button>
+              <Button
+                onClick={() => formRef.current.submitForm()}
+                loading={loading}
+              >
+                Salvar
+              </Button>
             </Grid>
           </Grid>
         </Form>
