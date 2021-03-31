@@ -9,4 +9,6 @@ export const Container = styled.div`
 
 export const Content = styled(ContainerMt).attrs({
   maxWidth: 'lg',
-})``;
+})`
+  margin-top: 50px;
+`;
